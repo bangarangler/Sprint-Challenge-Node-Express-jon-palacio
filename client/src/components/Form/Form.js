@@ -1,5 +1,7 @@
 import React from "react";
 
+import axios from "axios";
+
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -14,10 +16,26 @@ class Form extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    let newPost = {
+      name: this.state.name,
+      description: this.state.description
+    };
+    axios
+      .post("http://localhost:4000/projects", newPost)
+      .then(res => {
+        this.setState({ name: "", description: "" });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   render() {
     return (
       <React.Fragment>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             placeholder="project name..."
@@ -34,6 +52,7 @@ class Form extends React.Component {
             required
             onChange={this.handleChange}
           />
+          <button>Submit</button>
         </form>
       </React.Fragment>
     );
