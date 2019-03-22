@@ -27,13 +27,24 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+		express is a framework for web applications, it is not the only option to
+		use but is very popular.
+
 - [ ] Describe Middleware?
+		middleware basically makes up express. to keep express small they made it in
+		a way to allow you to plugin a library or custom middleware to give you the
+		functionallity you are looking for with out forcing you to use it
 
 - [ ] Describe a Resource?
+		a resource could be antything you require to use something. like the weather
+		data or a scores data.
 
 - [ ] What can the API return to help clients know if a request was successful?
+		200.  http status code
 
 - [ ] How can we partition our application into sub-applications?
+		using routers like components. express.Router. and having diff router files
+		that we designate for a specific endpoint
 
 ## Project Setup
 
