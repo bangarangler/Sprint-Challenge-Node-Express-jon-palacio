@@ -17,38 +17,6 @@ class App extends Component {
 
   handleForm = () => {
     this.setState({ showForm: !this.state.showForm });
-    let form = null;
-    if (this.state.showForm) {
-      return (form = (
-        <Route
-          pathname="/form"
-          render={props => {
-            return <Form />;
-          }}
-        />
-      ));
-    } else {
-      return (
-        <div className="App">
-          <nav>
-            <ul>
-              <li>
-                <Link onClick={this.handleShow} to="/projects">
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link onClick={this.handleForm} to="/form">
-                  Add Project
-                </Link>
-              </li>
-            </ul>
-          </nav>
-          <h1>Welcome to Front End</h1>
-          {form}
-        </div>
-      );
-    }
   };
 
   render() {
@@ -81,6 +49,7 @@ class App extends Component {
           </nav>
           <h1>Welcome to Front End</h1>
           {proj}
+          {this.state.showForm ? <Form /> : null}
         </div>
       );
     }
